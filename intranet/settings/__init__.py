@@ -462,6 +462,7 @@ INSTALLED_APPS = [
     # Django plugins
     "django_extensions",
     "django_requestlogging",
+    "sslserver",
     "rest_framework",
     "maintenance_mode",
     "pipeline",
