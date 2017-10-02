@@ -289,7 +289,7 @@ TEMPLATES = [
                 "intranet.apps.context_processors.mobile_app",  # For the custom android app functionality (tbd?)
                 "intranet.apps.context_processors.is_tj_ip",  # Whether on the internal TJ or FCPS network
                 "intranet.apps.context_processors.global_custom_theme",  # Sitewide custom themes (special events, etc)
-                "intranet.apps.context_processors.show_bus_button"
+                "intranet.apps.context_processors.show_bus_button",
                 "intranet.apps.context_processors.show_homecoming",  # Sitewide custom themes (special events, etc)
             ),
             "debug": True,  # Only enabled if DEBUG is true as well
