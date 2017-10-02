@@ -4,13 +4,12 @@ import logging
 import json
 
 from django import http
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render, get_object_or_404
 from django.core.serializers import serialize
 from django.utils import timezone
-
-from django.db.models import Q
 
 from .models import Answer, Choice, Poll, Question
 from .forms import PollForm
@@ -238,8 +237,8 @@ def handle_sap(q):
                 "all": users.count(),
                 "votes_all": question_votes.count(),
                 "all_percent": perc(users.count(), users.count()),
-                "male": users.filter(cache__gender=True).count(),
-                "female": users.filter(cache__gender__isnull=False, cache__gender=False).count()
+                "male": users.filter(gender=True).count(),
+                "female": users.filter(gender__isnull=False, gender=False).count()
             }
         }
     }
@@ -264,19 +263,19 @@ def generate_choice(name, votes, total_count, do_gender=True, show_answers=False
             "total": {
                 "all": votes.count(),
                 "all_percent": perc(votes.count(), total_count),
-                "male": votes.filter(user__cache__gender=True).count() if do_gender else 0,
-                "female": votes.filter(user__cache__gender__isnull=False, user__cache__gender=False).count() if do_gender else 0
+                "male": votes.filter(user__gender=True).count() if do_gender else 0,
+                "female": votes.filter(user__gender__isnull=False, user__gender=False).count() if do_gender else 0
             }
         },
         "users": [v.user for v in votes] if show_answers else None
     }
 
     for yr in range(9, 14):
-        yr_votes = votes.filter(user__cache__grade_number=yr)
+        yr_votes = votes.filter(user__graduation_year=settings.SENIOR_GRADUATION_YEAR + 12 - yr)
         choice["votes"][yr] = {
             "all": yr_votes.count(),
-            "male": yr_votes.filter(user__cache__gender=True).count() if do_gender else 0,
-            "female": yr_votes.filter(user__cache__gender__isnull=False, user__cache__gender=False).count() if do_gender else 0
+            "male": yr_votes.filter(user__gender=True).count() if do_gender else 0,
+            "female": yr_votes.filter(user__gender__isnull=False, user__gender=False).count() if do_gender else 0
         }
     return choice
 
@@ -316,13 +315,6 @@ def poll_results_view(request, poll_id):
         poll = Poll.objects.get(id=poll_id)
     except Poll.DoesNotExist:
         raise http.Http404
-
-    # Set the database cache of all users that participated in the poll.
-    participants = Answer.objects.filter(question__in=poll.question_set.all())
-    participants = participants.filter(Q(user__cache__isnull=True) | Q(user__cache__gender__isnull=True) | Q(user__cache__grade_number=True))
-    participants = participants.values_list("user", flat=True)
-    for user in User.objects.filter(id__in=participants):
-        user.set_cache()
 
     questions = []
     for q in poll.question_set.all():

@@ -44,6 +44,9 @@ ALLOWED_HOSTS = ["ion.tjhsst.edu", "198.38.18.250", "localhost", "127.0.0.1"]
 
 SCHOOL_START_DATE = datetime.date(2017, 8, 28)
 
+HOCO_START_DATE = datetime.date(2017, 10, 2)
+HOCO_END_DATE = datetime.date(2017, 10, 14)
+
 PRODUCTION = os.getenv("PRODUCTION", "").upper() == "TRUE"
 TRAVIS = os.getenv("TRAVIS", "").upper() == "TRUE"
 # FIXME: figure out a less-hacky way to do this.
@@ -287,6 +290,7 @@ TEMPLATES = [
                 "intranet.apps.context_processors.is_tj_ip",  # Whether on the internal TJ or FCPS network
                 "intranet.apps.context_processors.global_custom_theme",  # Sitewide custom themes (special events, etc)
                 "intranet.apps.context_processors.show_bus_button"
+                "intranet.apps.context_processors.show_homecoming",  # Sitewide custom themes (special events, etc)
             ),
             "debug": True,  # Only enabled if DEBUG is true as well
             'loaders': ('django.template.loaders.filesystem.Loader', 'django.template.loaders.app_directories.Loader'),

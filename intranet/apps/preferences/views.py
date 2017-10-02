@@ -10,6 +10,7 @@ from .forms import (BusRouteForm, NotificationOptionsForm, PreferredPictureForm,
 from ..users.models import User, Email
 from ..bus.models import Route
 
+
 logger = logging.getLogger(__name__)
 
 
@@ -91,7 +92,11 @@ def save_preferred_pic(request, user):
                     logger.debug("{}: new: {} from: {}".format("preferred_photo",
                                                                new_preferred_pic, old_preferred_pic if "preferred_photo" in preferred_pic else None))
                     try:
-                        user.preferred_photo = user.photos.filter(grade_number=new_preferred_pic)
+                        if new_preferred_pic == 'AUTO':
+                            user.preferred_photo = None
+                        else:
+                            user.preferred_photo = user.photos.get(grade_number=new_preferred_pic)
+                        user.save()
                     except Exception as e:
                         messages.error(request, "Unable to set field {} with value {}: {}".format("preferred_pic", new_preferred_pic, e))
                         logger.debug("Unable to set field {} with value {}: {}".format("preferred_pic", new_preferred_pic, e))
@@ -320,7 +325,7 @@ def preferences_view(request):
 def privacy_options_view(request):
     """View and edit privacy options for a user."""
     if "user" in request.GET:
-        user = User.objects.get(id=request.GET.get("user"))
+        user = User.objects.user_with_ion_id(request.GET.get("user"))
     elif "student_id" in request.GET:
         user = User.objects.user_with_student_id(request.GET.get("student_id"))
     else:
@@ -330,11 +335,17 @@ def privacy_options_view(request):
         messages.error(request, "Invalid user.")
         user = request.user
 
-    if request.method == "POST":
-        privacy_options_form = save_privacy_options(request, user)
-    else:
-        privacy_options = get_privacy_options(user)
-        privacy_options_form = PrivacyOptionsForm(user, initial=privacy_options)
+    if user.is_eighthoffice:
+        user = None
 
-    context = {"privacy_options_form": privacy_options_form, "profile_user": user}
+    if user:
+        if request.method == "POST":
+            privacy_options_form = save_privacy_options(request, user)
+        else:
+            privacy_options = get_privacy_options(user)
+            privacy_options_form = PrivacyOptionsForm(user, initial=privacy_options)
+
+        context = {"privacy_options_form": privacy_options_form, "profile_user": user}
+    else:
+        context = {"profile_user": user}
     return render(request, "preferences/privacy_options.html", context)
