@@ -3,6 +3,8 @@ import datetime
 from django.utils import timezone
 
 from ..announcements.models import Announcement
+from ..eighth.models import EighthScheduledActivity
+
 from ..schedule.models import Day
 
 
@@ -13,6 +15,8 @@ def hello_world(page, sign, request):
 def announcements(page, sign, request):
     return {"public_announcements": Announcement.objects.filter(groups__isnull=True, expiration_date__gt=timezone.now())}
 
+def eighth(page, sign, request):
+    return {"eighth_activities": EighthScheduledActivity.objects.filter()}
 
 def bus(page, sign, request):
     now = datetime.datetime.now()
