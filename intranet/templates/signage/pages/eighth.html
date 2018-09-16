@@ -91,7 +91,6 @@
     <script type="text/javascript" src="{% static 'js/eighth/responsive.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/eighth/signupUI.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/eighth/signup.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/eighth/signup.search.js' %}"></script>
 
     <script type="text/javascript">
     {% if request.GET.activity %}
@@ -367,31 +366,10 @@
         
 
         <div id="activity-picker" class="{% if request.user != user %}different-user{% endif %}">
-            <div class="search-wrapper">
-                <i class="fa fa-search"></i>
-                <span>
-                    <input type="search" placeholder="Search names, sponsors, rooms..." disabled>
-                </span>
-                <h5 class="search-header">
-                    Search Results<a class="button small-button clear-button">Clear</a>
-                </h5>
-            </div>
             <div class="backbtn">
                 <i class="fa fa-chevron-left"></i>
             </div>
             <div id="activity-list" data-toggle-favorite-endpoint="{% url 'eighth_toggle_favorite' %}">
-                <h5 class="sticky-header favorites-header" data-header="favorites-header">
-                    Favorites
-                </h5>
-                <ul class="favorite-activities" data-header="favorites-header"></ul>
-                <h5 class="sticky-header special-header" data-header="special-header">
-                    Special
-                </h5>
-                <ul class="special-activities" data-header="special-header"></ul>
-                <h5 class="sticky-header recommended-header" data-header="recommended-header">
-                    Recommended Activities
-                </h5>
-                <ul class="recommended-activities" data-header="recommended-header"></ul>
                 <h5 class="sticky-header all-header" data-header="all-header">
                     All
                 </h5>
