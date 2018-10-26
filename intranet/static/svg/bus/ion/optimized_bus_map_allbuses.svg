@@ -43,7 +43,7 @@
      id="namedview3916"
      showgrid="false"
      inkscape:zoom="0.70710678"
-     inkscape:cx="261.84435"
+     inkscape:cx="145.17173"
      inkscape:cy="372.31399"
      inkscape:window-x="0"
      inkscape:window-y="41"
@@ -178,58 +178,12 @@
        class="a"
        inkscape:connector-curvature="0"
        style="fill:#dddddd" />
-  </g>
-  <g
-     id="front_school"
-     transform="rotate(90,279.61721,280.8134)">
     <path
-       style="fill:#dddddd"
-       inkscape:connector-curvature="0"
-       id="_36"
-       d="m 0.4,63.923736 v -46.2 c 0,-4.2 3.4,-7.7 7.7,-7.7 h 15.4 c 4.2,0 7.7,3.4 7.7,7.7 v 46.2 c 0,4.2 -3.4,7.7 -7.7,7.7 H 8.1 c -4.2,0 -7.7,-3.4 -7.7,-7.7 z"
-       class="a" />
-    <path
+       id="_80"
+       d="m 333.37213,167.87907 v -46.2 c 0,-4.2 3.4,-7.7 7.7,-7.7 h 15.4 c 4.2,0 7.7,3.4 7.7,7.7 v 46.2 c 0,4.2 -3.4,7.7 -7.7,7.7 h -15.4 c -4.2,0 -7.7,-3.4 -7.7,-7.7 z"
        class="a"
-       d="M 0.4,138.1 V 91.9 c 0,-4.2 3.4,-7.7 7.7,-7.7 h 15.4 c 4.2,0 7.7,3.4 7.7,7.7 v 46.2 c 0,4.2 -3.4,7.7 -7.7,7.7 H 8.1 c -4.2,0 -7.7,-3.4 -7.7,-7.7 z"
-       id="_35"
        inkscape:connector-curvature="0"
-       style="fill:#dddddd" />
-    <path
-       class="a"
-       d="m 0.4,210 v -46.2 c 0,-4.2 3.4,-7.7 7.7,-7.7 h 15.4 c 4.2,0 7.7,3.4 7.7,7.7 V 210 c 0,4.2 -3.4,7.7 -7.7,7.7 H 8.1 c -4.2,0 -7.7,-3.4 -7.7,-7.7 z"
-       id="_34"
-       inkscape:connector-curvature="0"
-       style="fill:#dddddd" />
-    <path
-       class="a"
-       d="m 0.4,281.8 v -46.2 c 0,-4.2 3.4,-7.7 7.7,-7.7 h 15.4 c 4.2,0 7.7,3.5 7.7,7.7 v 46.2 c 0,4.2 -3.4,7.7 -7.7,7.7 H 8.1 c -4.2,0 -7.7,-3.4 -7.7,-7.7 z"
-       id="_33"
-       inkscape:connector-curvature="0"
-       style="fill:#dddddd" />
-    <path
-       class="a"
-       d="m 0.4,353.6 v -46.2 c 0,-4.2 3.4,-7.7 7.7,-7.7 h 15.4 c 4.2,0 7.7,3.4 7.7,7.7 v 46.2 c 0,4.2 -3.4,7.7 -7.7,7.7 H 8.1 c -4.2,0 -7.7,-3.4 -7.7,-7.7 z"
-       id="_32"
-       inkscape:connector-curvature="0"
-       style="fill:#dddddd" />
-    <path
-       class="a"
-       d="m 0.4,425.5 v -46.2 c 0,-4.2 3.4,-7.7 7.7,-7.7 h 15.4 c 4.2,0 7.7,3.4 7.7,7.7 v 46.2 c 0,4.2 -3.4,7.7 -7.7,7.7 H 8.1 c -4.2,0 -7.7,-3.4 -7.7,-7.7 z"
-       id="_31"
-       inkscape:connector-curvature="0"
-       style="fill:#dddddd" />
-    <path
-       class="a"
-       d="m 0.4,497.3 v -46.2 c 0,-4.2 3.4,-7.7 7.7,-7.7 h 15.4 c 4.2,0 7.7,3.4 7.7,7.7 v 46.2 c 0,4.2 -3.4,7.7 -7.7,7.7 H 8.1 c -4.2,0 -7.7,-3.4 -7.7,-7.7 z"
-       id="_30"
-       inkscape:connector-curvature="0"
-       style="fill:#dddddd" />
-    <path
-       class="a"
-       d="m 0.4,569.1 v -46.2 c 0,-4.2 3.4,-7.7 7.7,-7.7 h 15.4 c 4.2,0 7.7,3.4 7.7,7.7 v 46.2 c 0,4.2 -3.4,7.7 -7.7,7.7 H 8.1 c -4.2,0 -7.7,-3.4 -7.7,-7.7 z"
-       id="_29"
-       inkscape:connector-curvature="0"
-       style="fill:#dddddd" />
+       style="fill:#dddddd;stroke-linejoin:round" />
   </g>
   <g
      id="back_row"
@@ -283,4 +237,10 @@
        inkscape:connector-curvature="0"
        style="fill:#dddddd" />
   </g>
+  <path
+     id="_7-7"
+     d="m 183.27424,177.39986 h 46.2 c 4.2,0 7.7,3.4 7.7,7.7 v 15.4 c 0,4.2 -3.4,7.7 -7.7,7.7 h -46.2 c -4.2,0 -7.7,-3.4 -7.7,-7.7 v -15.4 c 0,-4.2 3.4,-7.7 7.7,-7.7 z"
+     class="a"
+     inkscape:connector-curvature="0"
+     style="fill:#dddddd;stroke-linejoin:round" />
 </svg>
